@@ -9,7 +9,7 @@
             ></component>
 
             <button :class="styles.BUTTON.PRIMARY"
-                    title="Push Up"
+                    title="Sposta in su"
                     @click="pushUp"
                     v-html="$form.getIcon('arrowUp')"
 
@@ -17,7 +17,7 @@
             ></button>
 
             <button :class="styles.BUTTON.SECONDARY"
-                    title="Push Down"
+                    title="Sposta in giù"
                     @click="pushDown"
                     v-html="$form.getIcon('arrowDown')"
 
@@ -30,7 +30,7 @@
                 :disabled="!permissions.canEditSection"
             >
                 <span v-html="$form.getIcon('cog')"></span>
-                <span>Configuration</span>
+                <span>Impostazioni</span>
             </button>
 
             <button
@@ -39,7 +39,7 @@
                 :disabled="!permissions.canDeleteSection"
             >
                 <span v-html="$form.getIcon('trash')"></span>
-                <span>Delete</span>
+                <span>Elimina</span>
             </button>
 
             <component
@@ -103,7 +103,7 @@
              */
             deleteSection() {
                 if (this.section.rows.length > 0) {
-                    if (!confirm("This section contains row(s). Are you sure? Everything is gone and can't be recovered after deleted.")) {
+                    if (!confirm("Questa sezione contiene delle righe. L'eliminazione comporta la perdita dele righe all'interno. Sei sicuro di voler procedere? Se procedi non potrai più tornare indietro.")) {
                         return
                     }
                 }

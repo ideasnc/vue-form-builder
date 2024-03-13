@@ -108,9 +108,9 @@
                 }
 
                 // Ask for Tab Name - TODO: do something better with Promise so it wouldn't harm the main thread
-                const tabName = prompt("Give it a name for your new tab")
+                const tabName = prompt("Inserisci il nome della scheda:")
                 if (!tabName) {
-                    return ALERT_DIALOG.show("Tab Name can't be empty.");
+                    return ALERT_DIALOG.show("Il nome della scheda non può essere vuoto.");
                 }
 
                 // Data preparation

@@ -2,12 +2,12 @@
     <div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Label</label>
+            <label>Label pulsante</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonLabel">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Classes</label>
+            <label>Classi CSS del pulsante</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonClasses">
         </div>
 
@@ -23,23 +23,23 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Allowed Extensions</label>
+            <label>Estensioni ammesse</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.extensions">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Max Size (in bytes - 0 for unlimited)</label>
+            <label>Dimensione massima (in byte - 0 per illimitato)</label>
             <input type="number" :class="styles.FORM.FORM_CONTROL" v-model="control.maxSize">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Multiple?</label> <br />
+            <label>Abilitare l'upload multiplo?</label> <br />
             <input type="checkbox" v-model="control.isMultiple">
         </div>
 
         <div v-show="control.isMultiple">
             <div :class="styles.FORM.FORM_GROUP">
-                <label>Maximum Files can be selected</label>
+                <label>Numero massimo di file che possono essere caricati</label>
                 <input type="number" :class="styles.FORM.FORM_CONTROL" v-model="control.maximumFiles" max="99">
             </div>
         </div>

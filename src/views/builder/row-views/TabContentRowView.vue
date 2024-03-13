@@ -2,10 +2,10 @@
     <section>
         <div class="pl-15">
             <button :class="styles.BUTTON.INFO" class="mr-15" @click="openTabSetting">
-                Tab Settings
+                Impostazioni tab
             </button>
             <button :class="styles.BUTTON.DANGER" @click="deleteRow">
-                Delete Tab
+                Elimina tab
             </button>
         </div>
 
@@ -28,7 +28,7 @@
             />
 
             <p v-if="!hasControls">
-                Droppable Zone / Controls will be showed here...
+                I campi verranno mostrati qui...
             </p>
         </draggable>
 
@@ -68,7 +68,7 @@
              * @see SECTION_VIEW_MIXINS.deleteRow
              */
             deleteRow() {
-                if (!confirm('Do you really want to remove this tab?')) {
+                if (!confirm('Vuoi davvero rimuovere questa scheda?')) {
                     return
                 }
 
@@ -114,7 +114,7 @@
                 )
 
                 // @ts-ignore
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.MODAL.INJECT, modalRendererInstance, "Tab Configuration");
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.MODAL.INJECT, modalRendererInstance, "Impostazioni tab");
             },
 
             /**

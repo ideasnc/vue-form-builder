@@ -2,7 +2,7 @@
     <div class="add-row-outer">
         <div class="add-row-container" :class="styles.COLUMNS.COL12" @click="addNew">
             <span v-html="$form.getIcon('addOutline', '32px', '32px', '#000')"></span>
-            <span>Add Row</span>
+            <span>Aggiungi riga</span>
         </div>
     </div>
 </template>

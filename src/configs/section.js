@@ -26,8 +26,8 @@ import RendererTabSectionView from "@/views/renderer/section-views/TabSectionVie
 
 const SECTION_TYPES = {
     normal: {
-        name: "Normal Block",
-        description: "Normal block with a headline",
+        name: "Blocco standard",
+        description: "Blocco standard con titolo",
         value: 'normal',
 
         rowType: ROW_TYPES.normal,
@@ -36,8 +36,8 @@ const SECTION_TYPES = {
     },
 
     toggleable: {
-        name: "Toggleable Block",
-        description: "Section block with toggle (display/hide) feature",
+        name: "Blocco richiudibile",
+        description: "Blocco dotato di switch (visualizza/nascondi)",
         value: 'toggleable',
 
         rowType: ROW_TYPES.normal,
@@ -46,8 +46,8 @@ const SECTION_TYPES = {
     },
 
     tab: {
-        name: "Tab Block",
-        description: "A block with multiple tabs feature",
+        name: "Blocco tabs",
+        description: "Blocco dotato di tab multiple",
         value: "tab",
 
         rowType: ROW_TYPES.tabRow,
@@ -102,8 +102,8 @@ function createNewSection(type, sortOrder = 0) {
     let newSectionData = HELPER.cloneDeep(SECTION_DEFAULT_DATA)
     newSectionData.type = type
     newSectionData.uniqueId = "section-" + HELPER.getUUIDv4()
-    newSectionData.headline = "New Section"
-    newSectionData.subHeadline = "This is the sub-headline of the new section"
+    newSectionData.headline = "Nuova sezione"
+    newSectionData.subHeadline = "Sottotitolo della sezione"
     newSectionData.sortOrder = sortOrder
 
     return newSectionData;

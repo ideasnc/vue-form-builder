@@ -28,7 +28,7 @@ const ROW_DEFAULT_DATA = {
  */
 function createNewRow(type, extendData = null) {
     if (!ROW_TYPES[type]) {
-        throw new TypeError(`Row Type: ${type} doesn't exists in Vue-Form-Builder`);
+        throw new TypeError(`Tipo di riga: ${type} non esiste nel builder!`);
     }
 
     // create new section data base on the default data

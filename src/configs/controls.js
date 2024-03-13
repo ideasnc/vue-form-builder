@@ -41,8 +41,8 @@ import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigVi
 
 const CONTROLS = {
     input: {
-        name: "Input Field",
-        description: "Input text single line",
+        name: "Campo di testo",
+        description: "Campo di testo semplice - Singola riga",
         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
 
         configData: {
@@ -55,8 +55,8 @@ const CONTROLS = {
     },
 
     number: {
-        name: "Number Input Field",
-        description: "Input text single line - Number Only",
+        name: "Campo numerico",
+        description: "Campo numerico - Singola riga",
 
         configData: {
             isReal: false, // integer or real (float/double)
@@ -78,8 +78,8 @@ const CONTROLS = {
     },
 
     text: {
-        name: "Text Field",
-        description: "Multiple line text field",
+        name: "Area di testo",
+        description: "Area di testo - Più righe",
 
         // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
         configData: {
@@ -102,7 +102,7 @@ const CONTROLS = {
 
     date: {
         name: "Date Picker",
-        description: "Simple date picker field",
+        description: "Selettore di data - Singola data o intervallo di date",
 
         configData: {
             format: "DD/MM/YYYY",
@@ -137,7 +137,7 @@ const CONTROLS = {
 
     dropDown: {
         name: "Dropdown",
-        description: "Dropdown select from a list",
+        description: "Lista a discesa - Singola selezione",
 
         configData: {
             dataMode: DROPDOWN_DATA_MODES.list.val, // normal - api
@@ -159,8 +159,8 @@ const CONTROLS = {
 
 
     checkbox: {
-        name: "Checkbox List",
-        description: "Checkbox list items (Multiple Select)",
+        name: "Caselle di controllo",
+        description: "Caselle di controllo - Selezione multipla",
 
         configData: {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
@@ -180,8 +180,8 @@ const CONTROLS = {
     },
 
     radio: {
-        name: "Radio List",
-        description: "Radio-Button list items (Single Select)",
+        name: "Pulsanti radio", // Radio List
+        description: "Pulsanti radio - Selezione mutuamente esclusiva",
 
         configData: {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
@@ -197,20 +197,20 @@ const CONTROLS = {
     },
 
     fileUploader: {
-        name: "File Uploader",
-        description: "File Uploader Control from vue-upload-component",
+        name: "Carica file",
+        description: "Carica file - Singolo file o multipli file",
         disableValidation: true,
 
         // config data
         configData: {
             // for styling
-            buttonLabel: "Select File",
+            buttonLabel: "Carica file",
             buttonClasses: "btn btn-primary",
 
             // for components
-            postActionURL: "/your-api-post-url-to-upload",
-            extensions: ".gif,.png,.jpg,.jpeg",
-            accept: "image/gif,image/jpeg,image/png",
+            postActionURL: "/url-a-caricare-il-file", // API-URL to upload the file
+            extensions: ".png,.jpg,.jpeg,.pdf",
+            accept: "image/jpeg,image/png,application/pdf",
             maxSize: 1000, // in bytes - 0 unlimited
 
             isMultiple: false,
@@ -228,7 +228,7 @@ const CONTROLS = {
 
     label: {
         name: "Label",
-        description: "Simple label text show up in your Form",
+        description: "Tag label per identificare un altro campo.",
         disableValue: true,
         
         configData: {
@@ -245,8 +245,8 @@ const CONTROLS = {
     },
 
     button: {
-        name: "Button",
-        description: "Simple button for your own purpose",
+        name: "Pulsante",
+        description: "Pulsante per inviare il modulo o eseguire un'azione.",
         disableValidation: true,
         disableValue: true,
 
@@ -269,8 +269,8 @@ const CONTROLS = {
     },
 
     emptyBlock: {
-        name: "Empty Block",
-        description: "Empty block to design your section/row.",
+        name: "Blocco vuoto",
+        description: "Blocco vuoto per il layout. Non ha alcun controllo.",
         disableValidation: true,
         disableValue: true,
 
@@ -283,8 +283,8 @@ const CONTROLS = {
     },
 
     textBlock: {
-        name: "Text Block",
-        description: "Block with text only (without any controls)",
+        name: "Blocco di testo",
+        description: "Semplice blocco di testo. Non ha alcun controllo.",
         disableValidation: true,
         disableValue: true, // if you provide this, the control field value will not be recorded.
 

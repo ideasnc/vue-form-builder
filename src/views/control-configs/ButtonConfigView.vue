@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Type (Type Attribute)</label>
+            <label>Tipo pulsante (attributo <code>type</code>code>)</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.buttonType"
@@ -15,7 +15,7 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Class (Type Attribute)</label>
+            <label>Classi pulsante (attributo <code>class</code>)</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.buttonClass"
@@ -30,16 +30,16 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Run validation before emitting?
+                Eseguire la convalida prima di eseguire il comando?
                 <input type="checkbox" v-model="control.isRunValidation">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Emitting Code
+                Codice evento da emettere
                 <IconTooltip icon="informationOutline"
-                             text="V-Form will $emit an Event with <strong>YOUR CODE</strong>" />
+                             text="Il sistema emetterà un evento tramite $emit con <strong>CODICE INSERITO</strong>" />
             </label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
@@ -48,9 +48,9 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Emitting Value
+                Valore dati da emettere
                 <IconTooltip icon="informationOutline"
-                             text="Specific Data-String when V-Form performs invoke $emit" />
+                             text="Stringa di dati specifica quando il sistema invoca $emit" />
             </label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"

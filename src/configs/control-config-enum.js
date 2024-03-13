@@ -5,15 +5,15 @@
 const RADIO_CHECKBOX_STYLE = {
     line: {
         val: 'line',
-        description: "Line by Line"
+        description: "Uno per riga"
     },
     next: {
         val: 'next',
-        description: "Next to each others"
+        description: "Uno accanto all'altro"
     },
     bothSide: {
         val: "bothSide",
-        description: "Stay on each sides in a row (Left - Right)",
+        description: "Uno a destra, uno a sinistra",
     }
 };
 
@@ -24,15 +24,15 @@ const RADIO_CHECKBOX_STYLE = {
 const RADIO_CHECKBOX_POSITION = {
     left: {
         val: 'left',
-        description: "Left"
+        description: "Sinistra"
     },
     center: {
         val: 'center',
-        description: 'Center',
+        description: 'Centro',
     },
     right: {
         val: 'right',
-        description: 'Right'
+        description: 'Destra'
     }
 };
 
@@ -43,11 +43,11 @@ const RADIO_CHECKBOX_POSITION = {
 const DATE_PICKER_RETURN_TYPES = {
     format: {
         val: "format",
-        description: "Date String from Date Format"
+        description: "Stringa formattata"
     },
     object: {
         val: "object",
-        description: "JS-Date Object"
+        description: "Oggetto Date di JavaScript"
     }
 }
 
@@ -57,27 +57,27 @@ const DATE_PICKER_RETURN_TYPES = {
 const DATE_PICKER_START_DATES = {
     monday: {
         val: 1,
-        description: "Monday"
+        description: "Lunedì"
     },
     tuesday: {
         val: 2,
-        description: "Tuesday"
+        description: "Martedì"
     },
     wednesday: {
         val: 3,
-        description: "Wednesday"
+        description: "Mercoledì"
     },
     thursday: {
         val: 4,
-        description: "Thursday"
+        description: "Giovedì"
     },
     friday: {
         val: 5,
-        description: "Friday"
+        description: "Venerdì"
     },
     saturday: {
         val: 6,
-        description: "Saturday"
+        description: "Sabato"
     },
     sunday: {
         val: 0,
@@ -93,11 +93,11 @@ const DATE_PICKER_START_DATES = {
 const DROPDOWN_DATA_MODES = {
     list: {
         val: 'list',
-        description: "Normal - Pre-Config List Items"
+        description: "Standard - Lista predefinita di elementi"
     },
     api: {
         val: 'api',
-        description: "API - List Items from your own API",
+        description: "API - Chiamata API per ottenere i dati della lista",
     },
 }
 
@@ -107,12 +107,12 @@ const DROPDOWN_DATA_MODES = {
 const FILE_UPLOAD_MODES = {
     normal: {
         val: 'normal',
-        description: "Keep the file there for HTTP Form Request"
+        description: "Conserva il file per post-processing" //Keep the file there for HTTP Form Request
     },
 
     preUpload: {
         val: 'preUpload',
-        description: "Pre-Upload to your own API"
+        description: "Pre-upload del file"
     },
 }
 

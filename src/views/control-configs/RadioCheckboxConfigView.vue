@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Display Mode</label>
+            <label>Modalità di visualizzazione</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.displayMode">
 
@@ -15,7 +15,7 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Display Position</label>
+            <label>Posizione di visualizzazione</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.position">
 
@@ -30,7 +30,7 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                List Selections
+                Opzioni
                 <span class="pointer"
                       @click="addListItem"
                       v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
@@ -48,14 +48,14 @@
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Item Value</label>
+                    <label>Valore</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Radio/Checkbox-Value"
                            v-model="listItem.value">
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Label Text</label>
+                    <label>Testo visualizzato</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Label text"
                            v-model="listItem.text">

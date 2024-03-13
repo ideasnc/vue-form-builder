@@ -2,9 +2,9 @@
     <SidebarToggleableContainer headline="Validation">
 
         <label>
-            Validation Rules
+            Regole di convalida
             <span class="pointer"
-                  title="Click this to add a new rule"
+                  title="Clicca per aggiungere una nuova regola"
                   @click="addNewRule"
                   v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
             </span>
@@ -16,19 +16,19 @@
 
             <div class="tool-block">
                 <span class="pointer"
-                      title="Click this to remove this rule"
+                      title="Rimuovi la regola di convalida"
                       @click="removeRule(ruleIndex)"
                       v-html="$form.getIcon('close', '16px', '16px', 'red')">
                 </span>
             </div>
 
             <div :class="[styles.FORM.FORM_GROUP]">
-                <label>Validation Rule</label>
+                <label>Regola di convalida</label>
                 <select :class="styles.FORM.FORM_CONTROL"
                         @change="updateDefaultErrorMessage(addedRule)"
                         v-model="addedRule.ruleType">
 
-                    <option selected disabled>Choose a Rule</option>
+                    <option selected disabled>Scegli una regola</option>
 
                     <option v-for="(ruleName, ruleIndex) in getRuleList(addedRule.ruleType)"
                             :key="ruleIndex"
@@ -46,7 +46,7 @@
             <div :class="styles.FORM.FORM_GROUP"
                  v-show="getRuleInfo(addedRule.ruleType, 'needValue')">
 
-                <label>Rule Value</label>
+                <label>Valore della regola</label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        :placeholder="getRuleInfo(addedRule.ruleType, 'valueInfo')"
@@ -56,7 +56,7 @@
 
             <div :class="styles.FORM.FORM_GROUP">
 
-                <label>Default Error Message</label>
+                <label>Messaggio di errore predefinito</label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        v-model="addedRule.errorMessage">

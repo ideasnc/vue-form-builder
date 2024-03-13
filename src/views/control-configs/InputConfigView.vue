@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Input `type` attribute</label>
+            <label>Personalizzazione campo (attributo <code>type</code>)</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.typeAttribute"

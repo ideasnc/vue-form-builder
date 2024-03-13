@@ -1,16 +1,16 @@
 <template>
     <div class="sidebar-form-configuration">
-        <h5>Main Form Configuration</h5>
+        <h5>Impostazioni modulo</h5>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Headline</label>
+            <label>Titolo</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="formConfiguration.headline">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Sub-Headline</label>
+            <label>Sottotitolo</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="formConfiguration.subHeadline">
@@ -18,14 +18,14 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Form Headline?
+                Mostra titolo
                 <input type="checkbox" v-model="formConfiguration.isShowHeadline">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Wrapper &#x3C;form&#x3E; outside of the Form?
+                Renderizza il tag HTML &#x3C;form&#x3E; intorno al modulo?
                 <input type="checkbox" v-model="formConfiguration.renderFormTag">
             </label>
         </div>
@@ -33,14 +33,14 @@
         <div v-show="formConfiguration.renderFormTag">
 
             <div :class="styles.FORM.FORM_GROUP">
-                <label>Form-TAG Action URL</label>
+                <label>URL del parametro <code>action</code></label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        v-model="formConfiguration.formActionURL">
             </div>
 
             <div :class="styles.FORM.FORM_GROUP">
-                <label>Form-TAG Method</label>
+                <label>Metodo HTTP del modulo</label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        v-model="formConfiguration.formMethod">
@@ -50,14 +50,14 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Enable Server-side Validation?
+                Abilita la validazione server-side?
                 <input type="checkbox" v-model="formConfiguration.enableServerSideValidation">
             </label>
         </div>
 
         <div v-show="formConfiguration.enableServerSideValidation">
             <div :class="styles.FORM.FORM_GROUP">
-                <label>Validation URL API Endpoint</label>
+                <label>Endpoint della validazione server-side</label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        v-model="formConfiguration.serverSideValidationEndpoint">
@@ -66,10 +66,10 @@
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
-                Save
+                Salva
             </button>
             <button :class="styles.BUTTON.INFO" @click="save(true)">
-                Save & Close
+                Salva e chiudi
             </button>
         </div>
     </div>
@@ -99,7 +99,7 @@
              */
             preSaveValidation() {
                 if (this.formConfiguration.enableServerSideValidation && !this.formConfiguration.serverSideValidationEndpoint) {
-                    return "You must include the Server-side Validation Endpoint";
+                    return "È necessario includere l'endpoint di convalida server-side";
                 }
 
                 return ""

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Text for Text-Block</label>
+            <label>Testo</label>
             <textarea type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.text" rows="6"></textarea>
         </div>
     </div>

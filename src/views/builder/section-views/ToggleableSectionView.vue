@@ -44,7 +44,7 @@
                     />
 
                     <p v-if="!hasControl">
-                        Droppable Zone / Controls will be showed here...
+                        I campi verranno mostrati qui...
                     </p>
                 </draggable>
 

@@ -1,12 +1,12 @@
 <template>
     <SidebarToggleableContainer headline="Basic Detail">
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Unique ID</label>
+            <label>ID Univoco (non modificabile)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Name (Must be unique)</label>
+            <label>Nome (deve essere univoco)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name">
         </div>
 
@@ -16,24 +16,24 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Sub-label</label>
+            <label>Sottotitolo</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.subLabel">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Label?
+                Mostra label
                 <input type="checkbox" v-model="control.isShowLabel">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Field Placeholder (Optional)</label>
+            <label>Placeholder (opzionale)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Default Value (Optional)</label>
+            <label>Valore predefinito (opzionale)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.defaultValue">
         </div>
 

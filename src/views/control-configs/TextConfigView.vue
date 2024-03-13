@@ -1,9 +1,9 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Number of Rows</label>
+            <label>Numero di righe</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.rows" />
-            <small>`row` HTML Attribute Configuration</small>
+            <small>Attributo HTML <code>rows</code></small>
         </div>
 
     </div>

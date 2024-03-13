@@ -4,7 +4,7 @@
         <label>
             {{ title }}
             <span class="pointer"
-                  title="Click to add a new Item"
+                  title="Clicca per aggiungere un nuovo elemento"
                   @click="addItem"
                   v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
             </span>
@@ -16,7 +16,7 @@
 
             <div class="tool-block">
                 <span class="pointer"
-                      title="Click this to remove this rule"
+                      title="Clicca per rimuovere l'elemento"
                       @click="removeItem(ruleIndex)"
                       v-html="$form.getIcon('close', '16px', '16px', 'red')">
                 </span>

@@ -2,13 +2,13 @@
     <div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Multiple Selection?
+                Abilita la selezione multipla?
                 <input type="checkbox" v-model="control.multiple">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Option-Data-List Mode</label>
+            <label>Modalità di funzionamento</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.dataMode">
 
@@ -26,7 +26,7 @@
                 <label>
                     Rest-API URL
                     <icon-tooltip icon="informationOutline"
-                                  text="Your API-Endpoint URL - GET Method. It must return an Array. Read more on Documentation" />
+                                  text="L'URL dell'endpoint API: metodo GET. Deve restituire un Array." />
                 </label>
 
                 <input type="text"
@@ -65,7 +65,7 @@
              v-show="this.control.dataMode === listDataModes.list.val">
 
             <label>
-                List Options
+                Opzioni
                 <span class="pointer"
                       @click="addListItem"
                       v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
@@ -83,14 +83,14 @@
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Item Value</label>
+                    <label>Valore</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Radio-Value"
                            v-model="listItem.value">
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Label Text</label>
+                    <label>Testo visualizzato</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Label text"
                            v-model="listItem.text">

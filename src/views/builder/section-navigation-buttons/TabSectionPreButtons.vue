@@ -2,7 +2,7 @@
     <div style="display: inline">
         <button :class="styles.BUTTON.DEFAULT" @click="addNewTab">
             <span v-html="$form.getIcon('addOutline', '32px', '32px', '#000')"></span>
-            Add Tab
+            Aggiungi tab
         </button>
     </div>
 </template>

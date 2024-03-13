@@ -8,60 +8,60 @@
 
 const VALIDATION_RULES = {
     required: {
-        desc: "Field must have value (at least length must be 1)",
+        desc: "Il campo deve avere un valore (almeno la lunghezza deve essere 1)",
         needValue: false,
-        errorMessage: "This field is required",
+        errorMessage: "Questo campo è obbligatorio",
     },
 
     min: {
-        desc: "Minimum length of the value. For number field, it will be the value (not length)",
+        desc: "Lunghezza minima del valore. Per il campo numerico, sarà il valore (non la lunghezza)",
 
         needValue: true,
-        valueInfo: "Number",
+        valueInfo: "Valore minimo",
 
-        errorMessage: "Minimum value for this field is :min",
+        errorMessage: "Il valore minimo per questo campo è :min",
     },
 
     max: {
-        desc: "Maximum length of the value. For number field, it will be the value (not length)",
+        desc: "Lunghezza massima del valore. Per il campo numerico, sarà il valore (non la lunghezza)",
 
         needValue: true,
-        valueInfo: "Number",
+        valueInfo: "Valore massimo",
 
-        errorMessage: "Maximum value for this field is :max",
+        errorMessage: "Il valore massimo per questo campo è :max",
     },
 
     isEmail: {
-        desc: "Validate email address",
+        desc: "Convalida l'indirizzo e-mail",
         needValue: false,
-        errorMessage: "Wrong email address format",
+        errorMessage: "Formato dell'indirizzo e-mail errato",
     },
 
     regex: {
-        desc: "Validation the field by using your own Regex Rule",
+        desc: "Convalida il campo utilizzando una regola Regex",
 
         needValue: true,
-        valueInfo: "Regex String|Flag - Eg: [0-9]+|g",
+        valueInfo: "Formato: Pattern Regex|Flag - es: [0-9]+|g",
 
-        errorMessage: "This field value doesn't match with the rule",
+        errorMessage: "Questo valore non correponde al formato richiesto",
     },
 
     sameAs: {
-        desc: "Check if the field has same value with another field",
+        desc: "Controlla se il campo ha lo stesso valore di un altro campo",
 
         needValue: true,
-        valueInfo: "The field name you want to check with",
+        valueInfo: "Il nome del campo con cui vuoi verificare",
 
-        errorMessage: "This field value doesn't as same as :sameAs",
+        errorMessage: "Questo valore di campo non è uguale a :sameAs",
     },
 
     customClosure: {
-        desc: "Invoke your own method to check your field",
+        desc: "Utilizza una funzione custom per convalidare il campo",
 
         needValue: true,
-        valueInfo: "Your method name",
+        valueInfo: "Nome del metodo",
 
-        errorMessage: "Custom validation failed.",
+        errorMessage: "Questo campo non è valido",
     }
 }
 

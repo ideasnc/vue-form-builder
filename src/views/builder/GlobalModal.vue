@@ -61,7 +61,7 @@
              */
             open(runnerId) {
                 if (this.isOpen) {
-                    ALERT_DIALOG.show('Please close the current active modal before open another')
+                    ALERT_DIALOG.show('Chiudi il popup attualmente aperto prima di aprirne un altro perfavore.')
                     return
                 }
 

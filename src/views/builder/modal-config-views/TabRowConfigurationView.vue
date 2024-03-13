@@ -1,24 +1,24 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Tab Title/Name</label>
+            <label>Titolo/Nome della tab</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="rowConfiguration.extendData.tabName">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Tab Icon (HTML/Inline SVG/Image)</label>
+            <label>Icona della tab (HTML/Inline SVG/Immagine)</label>
             <textarea :class="styles.FORM.FORM_CONTROL" v-model="rowConfiguration.extendData.tabIcon"></textarea>
 
             <p>
-                Recommendation: <a href="http://svgicons.sparkk.fr/" target="_blank">Free Inline-SVG Icons</a>
+                Consiglio: <a href="http://svgicons.sparkk.fr/" target="_blank">Free Inline-SVG Icons</a>
             </p>
         </div>
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(true)">
-                Save
+                Salva
             </button>
         </div>
     </div>

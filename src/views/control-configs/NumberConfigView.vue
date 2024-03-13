@@ -2,13 +2,13 @@
     <div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Is Real Number (Float/Double)
+                Ammette valori decimali?
                 <input type="checkbox" v-model="control.isReal">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP" v-show="control.isReal">
-            <label>Decimal Places</label>
+            <label>Numero di decimali ammessi</label>
             <input type="number"
                    step="1"
                    min="0"
