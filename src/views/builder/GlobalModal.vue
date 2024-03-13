@@ -61,8 +61,7 @@
              */
             open(runnerId) {
                 if (this.isOpen) {
-                    ALERT_DIALOG.show('Chiudi il popup attualmente aperto prima di aprirne un altro perfavore.')
-                    return
+                    this.close();
                 }
 
                 // set size
