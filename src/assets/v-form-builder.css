@@ -330,7 +330,6 @@
     right: 0;
     background-color: #fff;
     overflow-x: hidden;
-    padding-top: 60px;
     transition: 0.5s;
     border-left: 1px solid rgba(0, 0, 0, .3)
 }
@@ -338,9 +337,8 @@
 .vue-form-builder .sidebar .close {
     position: absolute;
     top: 5px;
-    left: 15px;
+    right: 15px;
     font-size: 36px;
-    margin-right: 50px;
     cursor: pointer;
 }
 
@@ -355,6 +353,11 @@ body {
 
 .vue-form-builder .sidebar-form-configuration .buttons {
     text-align: right;
+}
+
+.vue-form-builder .sidebar-form-configuration > h5 {
+    margin-bottom: 20px;
+    padding-right: 30px;
 }
 
 .vue-form-builder .toggleable-section,
@@ -1324,4 +1327,9 @@ html.md-theme-default .vue-form-builder .md-list-item {
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+
+/* Custom CSS */
+.file-uploads label {
+    cursor: pointer;
 }

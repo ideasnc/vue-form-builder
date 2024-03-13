@@ -206,6 +206,9 @@ const CONTROLS = {
             // for styling
             buttonLabel: "Carica file",
             buttonClasses: "btn btn-primary",
+            
+            clearButtonLabel: "Annulla",
+            clearButtonClasses: "btn btn-danger ml-2",
 
             // for components
             postActionURL: "./upload-file", // API-URL to upload the file

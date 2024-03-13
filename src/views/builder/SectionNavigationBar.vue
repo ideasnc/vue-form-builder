@@ -30,7 +30,7 @@
                 :disabled="!permissions.canEditSection"
             >
                 <span v-html="$form.getIcon('cog')"></span>
-                <span>Impostazioni</span>
+                <span>Impostazioni sezione</span>
             </button>
 
             <button

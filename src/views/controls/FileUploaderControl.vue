@@ -1,23 +1,34 @@
 <template>
-    <VueUploadComponent
-        :id="control.uniqueId"
-        :class="controlClasses"
-        v-model="files"
+    <div>
+        <ul v-if="files.length>0">
+            <li v-for="file in files" :key="file.id">{{file.name}}</li>
+        </ul>
 
-        :multiple="control.isMultiple"
-        :accept="control.accept"
-        :extensions="control.extensions"
-        :size="control.maxSize"
-        :maximum="maximumFilesCanBeUploaded"
+        <div class="d-flex align-items-center">
+            <VueUploadComponent
+                :id="control.uniqueId"
+                :class="controlClasses"
+                v-model="files"
 
-        :headers="configuredHeaders"
-        :data="configuredPostData"
-    >
-        <button
-            :class="control.buttonClasses"
-            v-text="control.buttonLabel"
-        ></button>
-    </VueUploadComponent>
+                :post-action="control.postActionURL"
+                :multiple="control.isMultiple"
+                :accept="control.accept"
+                :extensions="control.extensions"
+                :size="control.maxSize"
+                :maximum="maximumFilesCanBeUploaded"
+
+                :headers="configuredHeaders"
+                :data="configuredPostData"
+            >
+                <button
+                    :class="control.buttonClasses"
+                    v-text="control.buttonLabel"
+                ></button>
+            </VueUploadComponent>
+
+            <button v-if="files.length>0" type="button" @click="files = []" :class="control.clearButtonClasses">{{control.clearButtonLabel}}</button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -36,11 +47,20 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
 
         data: () => ({
-            files: null,
+            files: [],
         }),
 
         methods: {
 
+        },
+
+        watch: {
+            files: {
+                handler(newFiles) {
+                    this.updateValue(newFiles)
+                },
+                deep: true
+            }
         },
 
         computed: {

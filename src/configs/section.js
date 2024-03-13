@@ -26,8 +26,8 @@ import RendererTabSectionView from "@/views/renderer/section-views/TabSectionVie
 
 const SECTION_TYPES = {
     normal: {
-        name: "Blocco standard",
-        description: "Blocco standard con titolo",
+        name: "Sezione standard",
+        description: "Sezione standard con titolo",
         value: 'normal',
 
         rowType: ROW_TYPES.normal,
@@ -36,8 +36,8 @@ const SECTION_TYPES = {
     },
 
     toggleable: {
-        name: "Blocco richiudibile",
-        description: "Blocco dotato di switch (visualizza/nascondi)",
+        name: "Sezione richiudibile",
+        description: "Sezione dotato di switch (visualizza/nascondi)",
         value: 'toggleable',
 
         rowType: ROW_TYPES.normal,
@@ -46,8 +46,8 @@ const SECTION_TYPES = {
     },
 
     tab: {
-        name: "Blocco tabs",
-        description: "Blocco dotato di tab multiple",
+        name: "Sezione tabs",
+        description: "Sezione dotato di tab multiple",
         value: "tab",
 
         rowType: ROW_TYPES.tabRow,
