@@ -1,5 +1,5 @@
 <template>
-    <SidebarToggleableContainer headline="Basic Detail">
+    <SidebarToggleableContainer headline="Informazioni base">
         <div :class="styles.FORM.FORM_GROUP">
             <label>ID Univoco (non modificabile)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>

@@ -6,6 +6,7 @@
 export default {
 	// global
 	canEditFormConfigurations: true,
+	canUseAdvancedSettings: false,
 
 	// sections
 	canAddSection: true,

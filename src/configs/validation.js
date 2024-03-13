@@ -8,12 +8,14 @@
 
 const VALIDATION_RULES = {
     required: {
+        name: "Campo Obbligatorio",
         desc: "Il campo deve avere un valore (almeno la lunghezza deve essere 1)",
         needValue: false,
         errorMessage: "Questo campo è obbligatorio",
     },
 
     min: {
+        name: "Valore/Lunghezza Minima",
         desc: "Lunghezza minima del valore. Per il campo numerico, sarà il valore (non la lunghezza)",
 
         needValue: true,
@@ -23,6 +25,7 @@ const VALIDATION_RULES = {
     },
 
     max: {
+        name: "Valore/Lunghezza Massima",
         desc: "Lunghezza massima del valore. Per il campo numerico, sarà il valore (non la lunghezza)",
 
         needValue: true,
@@ -32,21 +35,25 @@ const VALIDATION_RULES = {
     },
 
     isEmail: {
+        name: "Indirizzo E-mail",
         desc: "Convalida l'indirizzo e-mail",
         needValue: false,
         errorMessage: "Formato dell'indirizzo e-mail errato",
     },
 
-    regex: {
-        desc: "Convalida il campo utilizzando una regola Regex",
+    // DISABLED
+    // regex: {
+    //     name: "Espressione Regolare",
+    //     desc: "Convalida il campo utilizzando una regola Regex",
 
-        needValue: true,
-        valueInfo: "Formato: Pattern Regex|Flag - es: [0-9]+|g",
+    //     needValue: true,
+    //     valueInfo: "Formato: Pattern Regex|Flag - es: [0-9]+|g",
 
-        errorMessage: "Questo valore non correponde al formato richiesto",
-    },
+    //     errorMessage: "Questo valore non correponde al formato richiesto",
+    // },
 
     sameAs: {
+        name: "Uguale a un altro campo",
         desc: "Controlla se il campo ha lo stesso valore di un altro campo",
 
         needValue: true,
@@ -55,14 +62,16 @@ const VALIDATION_RULES = {
         errorMessage: "Questo valore di campo non è uguale a :sameAs",
     },
 
-    customClosure: {
-        desc: "Utilizza una funzione custom per convalidare il campo",
+    // DISABLED
+    // customClosure: {
+    //     name: "Funzione Personalizzata",
+    //     desc: "Utilizza una funzione custom per convalidare il campo",
 
-        needValue: true,
-        valueInfo: "Nome del metodo",
+    //     needValue: true,
+    //     valueInfo: "Nome del metodo",
 
-        errorMessage: "Questo campo non è valido",
-    }
+    //     errorMessage: "Questo campo non è valido",
+    // }
 }
 
 /**

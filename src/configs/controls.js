@@ -208,7 +208,7 @@ const CONTROLS = {
             buttonClasses: "btn btn-primary",
 
             // for components
-            postActionURL: "/url-a-caricare-il-file", // API-URL to upload the file
+            postActionURL: "./upload-file", // API-URL to upload the file
             extensions: ".png,.jpg,.jpeg,.pdf",
             accept: "image/jpeg,image/png,application/pdf",
             maxSize: 1000, // in bytes - 0 unlimited
@@ -254,11 +254,11 @@ const CONTROLS = {
             buttonClass: STYLES.BUTTON.PRIMARY,
             buttonType: "button", // submit/reset/button/...
 
-            emitEventCode: "", // like: "BtnClicked/clicked/change"
+            emitEventCode: "custom_button_click", // like: "BtnClicked/clicked/change"
             emitEventData: "", // special data to emit to let you know which button is clicked
 
             // if this is true => validation will be run before the real invoke method
-            isRunValidation: false,
+            isRunValidation: true,
 
             // Override here in order to not show the Label
             isShowLabel: false,

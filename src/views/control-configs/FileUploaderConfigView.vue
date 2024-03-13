@@ -6,18 +6,18 @@
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonLabel">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi CSS del pulsante</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonClasses">
         </div>
 
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>(API) Post-Action URL</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.postActionURL">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Accept Mimes</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.accept">
         </div>
@@ -25,6 +25,7 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>Estensioni ammesse</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.extensions">
+            <small>Separare le estensioni con una virgola (es. .jpg, .png, .gif)</small>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
@@ -45,6 +46,7 @@
         </div>
 
         <GlobalKeyValueItemConfiguration
+            v-if="permissions.canUseAdvancedSettings"
             :items="control.headers"
 
             block-title="Additional Headers"
@@ -54,6 +56,7 @@
         />
 
         <GlobalKeyValueItemConfiguration
+            v-if="permissions.canUseAdvancedSettings"
             :items="control.postData"
 
             block-title="Additional POST Data"

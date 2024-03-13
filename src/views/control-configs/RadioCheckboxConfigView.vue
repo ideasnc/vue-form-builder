@@ -50,14 +50,14 @@
                 <div :class="styles.FORM.FORM_GROUP">
                     <label>Valore</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                           placeholder="Radio/Checkbox-Value"
+                           placeholder="Valore"
                            v-model="listItem.value">
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
                     <label>Testo visualizzato</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                           placeholder="Label text"
+                           placeholder="Testo visualizzato"
                            v-model="listItem.text">
                 </div>
             </div>

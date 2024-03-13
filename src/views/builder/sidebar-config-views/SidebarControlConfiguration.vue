@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-form-configuration">
-        <h5>Control Configuration</h5>
+        <h5>Impostazioni campo</h5>
 
         <!-- Basic of the control/Same for all -->
         <ControlBasicInformation
@@ -11,17 +11,19 @@
         <ControlStylingInformation
             v-if="permissions.canUpdateControlStyling"
             :control="control"
+            :permissions="permissions"
         />
 
         <!-- Control specific configuration / Only render it if the control has specific configuration view -->
         <SidebarToggleableContainer
                 v-if="specificConfigurationView && permissions.canUpdateControlSpecialConfiguration"
-                headline="Control Specific Configuration"
+                headline="Impostazioni specifiche del campo"
         >
             <component
                 :is="specificConfigurationView"
                 :formData="formData"
                 :control="control"
+                :permissions="permissions"
             />
         </SidebarToggleableContainer>
 

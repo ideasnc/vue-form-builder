@@ -1,5 +1,5 @@
 <template>
-    <SidebarToggleableContainer headline="Validation">
+    <SidebarToggleableContainer headline="Convalida">
 
         <label>
             Regole di convalida
@@ -33,7 +33,7 @@
                     <option v-for="(ruleName, ruleIndex) in getRuleList(addedRule.ruleType)"
                             :key="ruleIndex"
                             :value="ruleName"
-                            v-text="ruleName">
+                            v-text="getRuleInfo(ruleName, 'name')">
                     </option>
 
                 </select>

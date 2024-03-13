@@ -1,5 +1,5 @@
 <template>
-    <SidebarToggleableContainer headline="Styling/Classes">
+    <SidebarToggleableContainer headline="Stile e design">
         <div :class="styles.FORM.FORM_GROUP">
             <label>Dimensione del campo</label>
             <select :class="styles.FORM.FORM_CONTROL" v-model="control.containerClass">
@@ -11,17 +11,17 @@
             </select>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi CSS aggiuntive (container)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.additionalContainerClass">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi CSS aggiuntive (campo)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.additionalFieldClass">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi CSS aggiuntive (label)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.additionalLabelClass">
         </div>
@@ -37,7 +37,8 @@
         mixins: [STYLE_INJECTION_MIXIN],
         components: {SidebarToggleableContainer},
         props: {
-            control: Object
+            control: Object,
+            permissions: Object
         },
 
         computed: {

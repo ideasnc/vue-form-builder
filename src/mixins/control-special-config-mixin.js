@@ -21,7 +21,9 @@ const CONTROL_SPECIAL_CONFIG_MIXIN = {
         formData: {
             type: Object,
             required: true
-        }
+        },
+
+        permissions: Object
     },
 
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Tipo di dati da ritornare</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.returnType">
@@ -15,7 +15,7 @@
         </div>
 
         <!--- Only show this configuration if return Type is Format --->
-        <div :class="styles.FORM.FORM_GROUP" v-show="control.returnType === listReturnTypes.format.val">
+        <div :class="styles.FORM.FORM_GROUP" v-show="control.returnType === listReturnTypes.format.val" v-if="permissions.canUseAdvancedSettings">
             <label>Formato data</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.format" />
         </div>
