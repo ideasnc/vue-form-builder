@@ -118,7 +118,7 @@ const CONTROLS = {
             minDays: 0, // min-day range
             maxDays: 0, // max-day range
 
-            returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
+            returnType: DATE_PICKER_RETURN_TYPES.object.val, // specific return type
         },
 
         fieldComponent: DatePickerControl,
