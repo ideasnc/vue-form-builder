@@ -9,7 +9,7 @@
                    v-model="sectionConfiguration.headline">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi aggiuntive titolo (CSS)</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
@@ -23,7 +23,7 @@
                    v-model="sectionConfiguration.subHeadline">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>Classi aggiuntive sottotitolo (CSS)</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
@@ -52,6 +52,7 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {SIDEBAR_BODY_MIXIN} from "@/mixins/sidebar-body-mixin";
     import {SECTION_DEFAULT_DATA} from "@/configs/section";
+    import DefaultPermission from "@/configs/roles";
 
     export default {
         name: "SidebarSectionConfiguration",
@@ -59,7 +60,8 @@
 
         data: () => ({
             dataKey: "sectionConfiguration",
-            sectionConfiguration: Object.assign({}, SECTION_DEFAULT_DATA)
+            sectionConfiguration: Object.assign({}, SECTION_DEFAULT_DATA),
+            permissions: DefaultPermission
         }),
 
         created() {

@@ -23,9 +23,9 @@
             </label>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>
-                Renderizza il tag HTML &#x3C;form&#x3E; intorno al modulo?
+                Renderizza il tag HTML <code>form</code> intorno al modulo?
                 <input type="checkbox" v-model="formConfiguration.renderFormTag">
             </label>
         </div>
@@ -48,7 +48,7 @@
 
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
             <label>
                 Abilita la validazione server-side?
                 <input type="checkbox" v-model="formConfiguration.enableServerSideValidation">
@@ -79,6 +79,7 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {SIDEBAR_BODY_MIXIN} from "@/mixins/sidebar-body-mixin";
     import {FORM_DEFAULT_DATA} from "@/configs/form";
+    import DefaultPermission from "@/configs/roles";
 
     /**
      * @property {FORM_DEFAULT_DATA} formConfiguration
@@ -90,6 +91,7 @@
             // OVERRIDE IT FROM `SIDEBAR_BODY_MIXIN`
             dataKey: "formConfiguration",
             formConfiguration: Object.assign({}, FORM_DEFAULT_DATA),
+            permissions: DefaultPermission
         }),
 
         methods: {
