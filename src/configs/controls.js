@@ -312,7 +312,7 @@ const CONTROL_DEFAULT_DATA = {
 
     'placeholderText': '', // :placeholder
 
-    'containerClass': STYLES.COLUMNS.COL4,
+    'containerClass': STYLES.COLUMNS.COL12,
     'additionalContainerClass': '', // :class for the <div> outer container
 
     'additionalFieldClass': '', // :class for <input> <select> ...
@@ -337,12 +337,14 @@ const CONTROL_DEFAULT_DATA = {
 function createControlData(controlKey) {
     const newData = Object.assign({}, CONTROL_DEFAULT_DATA, CONTROLS[controlKey].configData || {})
 
+    // unique ID is a must - I used UUIDv4 => 99% Unique
+    newData.uniqueId = "control-" + HELPER.getUUIDv4()
+
     // set default data
     newData.label = CONTROLS[controlKey].name
     newData.type = controlKey
 
-    // unique ID is a must - I used UUIDv4 => 99% Unique
-    newData.uniqueId = "control-" + HELPER.getUUIDv4()
+    newData.name = newData.label.toLowerCase().replace(/ /g, "_") + "_" + newData.uniqueId;
 
     return newData
 }

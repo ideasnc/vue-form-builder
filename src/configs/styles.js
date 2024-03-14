@@ -31,6 +31,21 @@ const STYLES = {
         COL12: "col-md-12 md-layout-item md-size-100",
     },
 
+    COLUMNS_NAMES: {
+        COL1: "8.333%",
+        COL2: "16.667%",
+        COL3: "25%",
+        COL4: "33.333%",
+        COL5: "41.667%",
+        COL6: "50%",
+        COL7: "58.333%",
+        COL8: "66.667%",
+        COL9: "75%",
+        COL10: "83.333%",
+        COL11: "91.667%",
+        COL12: "100%",
+    },
+
     /**
      * List Group Classes - Used in AddSectionVueControl
      */

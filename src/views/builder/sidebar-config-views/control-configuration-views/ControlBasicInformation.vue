@@ -5,13 +5,13 @@
             <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <div :class="styles.FORM.FORM_GROUP" v-if="false">
             <label>Nome (deve essere univoco)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Label</label>
+            <label>Nome (deve essere univoco)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.label">
         </div>
 
@@ -50,6 +50,16 @@
         components: {SidebarToggleableContainer},
         props: {
             control: Object,
+        },
+        watch: {
+            control: {
+                handler: function (newVal) {
+                    if (newVal.label) {
+                        newVal.name = newVal.label.toLowerCase().replace(/ /g, "_") + "_" + newVal.uniqueId;
+                    }
+                },
+                deep: true
+            }
         }
     }
 </script>

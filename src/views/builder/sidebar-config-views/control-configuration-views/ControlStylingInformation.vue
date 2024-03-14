@@ -6,9 +6,13 @@
                 <option v-for="(className, classID) in containerClasses"
                         :key="className"
                         :value="className">
-                    {{classID}} ({{className}})
+                    {{classID}} ({{containerClassNames[classID]}})
                 </option>
             </select>
+            <small>
+                La percentuale si riferisce alla larghezza del campo all'interno del container.
+                I campi vengono visualizzati in riga, se la somma delle percentuali supera il 100% verranno mandati a capo.
+            </small>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP" v-if="permissions.canUseAdvancedSettings">
@@ -43,7 +47,10 @@
 
         computed: {
             containerClasses() {
-                return this.styles.COLUMNS
+                return this.styles.COLUMNS;
+            },
+            containerClassNames() {
+                return this.styles.COLUMNS_NAMES;
             }
         }
     }
