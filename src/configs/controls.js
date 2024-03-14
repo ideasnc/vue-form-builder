@@ -111,6 +111,7 @@ const CONTROLS = {
             numberOfColumns: 1, // Number of Column(s) will be shown
             minDate: null, // min day (less => can't select)
             maxDate: null,// max day (more => can't select),
+            lang: "it-IT", // language
 
             singleMode: true, // date or date-range
 

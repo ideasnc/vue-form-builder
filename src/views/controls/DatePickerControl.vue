@@ -47,6 +47,7 @@
         data: () => ({
             datepicker: null,
             currentValue: null,
+            enableSettingValue: true, // prevent infinite loop
         }),
 
         model: {
@@ -62,7 +63,11 @@
                 },
             },
             value(val) {
-                this.setValue(val);
+                if (!this.enableSettingValue) {
+                    this.enableSettingValue = true;
+                    return;
+                }
+                this.setCurrentValue(val);
             }
         },
 
@@ -82,7 +87,8 @@
              * Special Func to set Value
              * @param val
              */
-            setValue(val) {
+            setCurrentValue(val) {
+                this.enableSettingValue = false;
                 if (val === null || val === undefined || val === '') {
                     this.datepicker.setDate(null)
                     return
@@ -169,7 +175,7 @@
                  */
                 onRender: () => {
                     if (this.control.defaultValue) {
-                        this.setValue(this.control.defaultValue);
+                        this.setCurrentValue(this.control.defaultValue);
                     }
                 },
 
