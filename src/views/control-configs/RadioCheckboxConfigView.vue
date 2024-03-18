@@ -29,6 +29,20 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
+            <label>Posizione dell'etichetta</label>
+            <select :class="styles.FORM.FORM_CONTROL"
+                    v-model="control.labelPosition">
+
+                <option v-for="item in listLabelPositions"
+                        :key="item.val"
+                        :value="item.val"
+                        v-text="item.description">
+                </option>
+
+            </select>
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
             <label>
                 Opzioni
                 <span class="pointer"
@@ -67,7 +81,7 @@
 
 <script>
     import {CONTROL_SPECIAL_CONFIG_MIXIN} from "@/mixins/control-special-config-mixin";
-    import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
+    import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE, RADIO_CHECKBOX_LABEL_POSITION} from "@/configs/control-config-enum";
     import ListItem from "@/libraries/list-item.class";
 
     export default {
@@ -101,7 +115,12 @@
             /**
              * Configuration for the position
              */
-            listPositions: () => RADIO_CHECKBOX_POSITION
+            listPositions: () => RADIO_CHECKBOX_POSITION,
+
+            /**
+             * Configuration for the labelPosition
+             */
+            listLabelPositions: () => RADIO_CHECKBOX_LABEL_POSITION
         }
     }
 </script>

@@ -6,14 +6,25 @@
                    :key="listItem.value"
                    :class="positionClasses">
                 <!--- For structural, line/next is same --->
-                <input :type="control.type"
-                       :class="control.additionalFieldClass"
-                       :name="inputName"
-                       :value="listItem.value"
-                       v-model="valueContainer[controlName]"
-                >
 
-                {{listItem.text}}
+                <template v-if="isLabelBefore">
+                    {{listItem.text}}
+                    <input :type="inputType"
+                           :class="control.additionalFieldClass"
+                           :name="inputName(listItem)"
+                           :value="listItem.value"
+                           v-model="valueContainer[controlName]"
+                    >
+                </template>
+                <template v-else>
+                    <input :type="inputType"
+                           :class="control.additionalFieldClass"
+                           :name="inputName(listItem)"
+                           :value="listItem.value"
+                           v-model="valueContainer[controlName]"
+                    >
+                    {{listItem.text}}
+                </template>
 
                 <!--- Line By Line will need this <br> --->
                 <br v-if="displayMode === 'line'" />
@@ -29,15 +40,27 @@
                      :key="listItem.value">
 
                     <label>
-                        <!--- Input things are same, hmm - TODO: DRY ?? --->
-                        <input :type="control.type"
-                               :class="control.additionalFieldClass"
-                               :name="inputName"
-                               :value="listItem.value"
-                               v-model="valueContainer[controlName]"
-                        >
 
-                        {{listItem.text}}
+                        <!--- Input things are same, hmm - TODO: DRY ?? --->
+                        <template v-if="isLabelBefore">
+                            {{listItem.text}}
+                            <input :type="inputType"
+                                :class="control.additionalFieldClass"
+                                :name="inputName(listItem)"
+                                :value="listItem.value"
+                                v-model="valueContainer[controlName]"
+                            >
+                        </template>
+                        <template v-else>
+                            <input :type="inputType"
+                                :class="control.additionalFieldClass"
+                                :name="inputName(listItem)"
+                                :value="listItem.value"
+                                v-model="valueContainer[controlName]"
+                            >
+                            {{listItem.text}}
+                        </template>
+                        
                     </label>
                 </div>
 
@@ -48,7 +71,7 @@
 
 <script>
     import {CONTROL_FIELD_EXTEND_MIXIN} from "@/mixins/control-field-extend-mixin";
-    import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
+    import {RADIO_CHECKBOX_LABEL_POSITION, RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
 
     /**
      * Radio/Checkbox List Control
@@ -91,11 +114,35 @@
 
         computed: {
             /**
+             * Get the input type for the current instance control
+             * @returns {string}
+             */
+            inputType() {
+                return this.control.type.toLowerCase();
+            },
+
+            /**
              * Check if the current instance control is radio??
              * @returns {boolean}
              */
             isRadio() {
                 return this.control.type === 'radio'
+            },
+
+            /**
+             * Check if the current instance control is radio??
+             * @returns {boolean}
+             */
+            isCheckbox() {
+                return this.control.type === 'checkbox'
+            },
+
+            /**
+             * Check if the label is before the input[type=radio|checkbox]
+             * @returns {boolean}
+             */
+            isLabelBefore() {
+                return this.control.labelPosition === RADIO_CHECKBOX_LABEL_POSITION.before.val
             },
 
             /**
@@ -137,12 +184,14 @@
                     'text-left': this.control.position === RADIO_CHECKBOX_POSITION.left.val,
                 }
             },
+        },
 
+        methods: {
             /**
              * Generate the :name for the input[type=checkbox|radio]
              * @returns {string|string}
              */
-            inputName() {
+             inputName(value) {
                 // For input[name] of Radio, they need to be the same.
                 // If Control Name is Empty => Use ID instead (otherwise, control will break =)) )
                 if (this.isRadio) {
@@ -150,7 +199,11 @@
                 }
 
                 // For Checkbox, name will always be Array Mode (name[])
-                return (this.controlName) + "[]"
+                if (this.isCheckbox) {
+                    return (this.controlName) + "[]"
+                }
+
+                return (this.controlName) + "[" + value.value + "]"
             }
         }
     }

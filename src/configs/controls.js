@@ -7,7 +7,7 @@ import {HELPER} from "@/libraries/helper";
 import {
     DATE_PICKER_RETURN_TYPES, DATE_PICKER_START_DATES,
 
-    RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE,
+    RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE, RADIO_CHECKBOX_LABEL_POSITION,
 
     DROPDOWN_DATA_MODES,
 
@@ -21,7 +21,7 @@ import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import LabelControl from "@/views/controls/LabelControl";
-import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
+import RadioCheckboxMultipleControl from "@/views/controls/RadioCheckboxMultipleControl";
 import DatePickerControl from "@/views/controls/DatePickerControl";
 import NumberControl from "@/views/controls/NumberControl";
 import DropdownControl from "@/views/controls/DropdownControl";
@@ -166,6 +166,7 @@ const CONTROLS = {
         configData: {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
+            labelPosition: RADIO_CHECKBOX_LABEL_POSITION.after.val, // before/after
 
             /**
              * @var {ListItem[]} items
@@ -173,7 +174,7 @@ const CONTROLS = {
             items: [], // list-item
         },
 
-        fieldComponent: RadioCheckboxControl,
+        fieldComponent: RadioCheckboxMultipleControl,
         configComponent: RadioCheckboxConfigView,
         rendererDefaultData() {
             return [];
@@ -187,13 +188,34 @@ const CONTROLS = {
         configData: {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
+            labelPosition: RADIO_CHECKBOX_LABEL_POSITION.after.val, // before/after
+
             /**
              * @var {ListItem[]} items
              */
             items: [], // list-item
         },
 
-        fieldComponent: RadioCheckboxControl,
+        fieldComponent: RadioCheckboxMultipleControl,
+        configComponent: RadioCheckboxConfigView
+    },
+
+    multipleText: {
+        name: "Campi di testo multipli",
+        description: "Campi di testo multipli - Singola riga",
+
+        configData: {
+            displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
+            labelPosition: RADIO_CHECKBOX_LABEL_POSITION.before.val, // before/after
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // list-item
+        },
+
+        fieldComponent: RadioCheckboxMultipleControl,
         configComponent: RadioCheckboxConfigView
     },
 

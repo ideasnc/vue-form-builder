@@ -5,14 +5,22 @@ import {CONTROLS} from "@/configs/controls";
 import {STYLES} from "@/configs/styles";
 import {VALIDATION_RULES} from "@/configs/validation";
 import {IRegisterProperties} from "@/interfaces/register-properties.interface.ts";
+import { getConfig, getMixins } from "@/config";
 
 const VueFormBuilderInstaller = function(
     Vue,
     properties = {}
 ) {
     if (VueFormBuilderInstaller.installed) {
-        return
+        return this;
     }
+
+    this.getConfig = getConfig;
+    this.getMixins = getMixins;
+    this.registerStyles = registerStyles;
+    this.registerControls = registerControls;
+    this.registerValidations = registerValidations;
+    this.disableControls = disableControls;
 
     /**
      *
@@ -33,17 +41,17 @@ const VueFormBuilderInstaller = function(
 
     // control extend?
     if (properties.hasOwnProperty('controls')) {
-        extendingControls(properties.controls)
+        registerControls(properties.controls)
     }
 
     // style override?
     if (properties.hasOwnProperty('styles')) {
-        Object.assign(STYLES, properties.styles)
+        registerStyles(properties.styles)
     }
 
     // validation extend?
     if (properties.hasOwnProperty('validations')) {
-        extendingValidations(properties.validations)
+        registerValidations(properties.validations)
     }
 
     // validation closures
@@ -72,13 +80,23 @@ const VueFormBuilderInstaller = function(
 
     // Mark as registered
     VueFormBuilderInstaller.installed = true;
+    
+    return this;
+}
+
+/**
+ * Extending Style from the users
+ * @param {Object} moreStyleObject
+ */
+const registerStyles = function(moreStyleObject) {
+    Object.assign(STYLES, moreStyleObject);
 }
 
 /**
  * Extending Control from the users
  * @param {Object} moreControlObject
  */
-const extendingControls = function(moreControlObject) {
+const registerControls = function(moreControlObject) {
     // validation if it does conflict or not
     const allKeys = Object.keys(moreControlObject)
     for (let iKey = 0; iKey < allKeys.length; iKey++) {
@@ -98,7 +116,7 @@ const extendingControls = function(moreControlObject) {
  * Extending Validation
  * @param {Object} validationObj
  */
-const extendingValidations = function (validationObj) {
+const registerValidations = function (validationObj) {
     // validation if it does conflict or not
     const allKeys = Object.keys(validationObj)
     for (let iKey = 0; iKey < allKeys.length; iKey++) {
@@ -125,5 +143,5 @@ const disableControls = function(controlKeys) {
 }
 
 export  {
-    VueFormBuilderInstaller
+    VueFormBuilderInstaller,
 }

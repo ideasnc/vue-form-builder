@@ -37,6 +37,21 @@ const RADIO_CHECKBOX_POSITION = {
 };
 
 /**
+ * Constant for Radio/Checkbox Label Position
+ * @type {{before: {val: string, description: string}, after: {val: string, description: string}}}
+ */
+const RADIO_CHECKBOX_LABEL_POSITION = {
+    before: {
+        val: 'before',
+        description: "Prima"
+    },
+    after: {
+        val: 'after',
+        description: 'Dopo',
+    }
+};
+
+/**
  * Return Type for Date-Picker
  * @type {{format: {val: string, description: string}, object: {val: string, description: string}}}
  */
@@ -119,6 +134,7 @@ const FILE_UPLOAD_MODES = {
 export  {
     RADIO_CHECKBOX_POSITION,
     RADIO_CHECKBOX_STYLE,
+    RADIO_CHECKBOX_LABEL_POSITION,
 
     DATE_PICKER_RETURN_TYPES,
     DATE_PICKER_START_DATES,
