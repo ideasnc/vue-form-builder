@@ -10,7 +10,7 @@
                 <template v-if="isLabelBefore">
                     {{listItem.text}}
                     <input :type="inputType"
-                           :class="control.additionalFieldClass"
+                           :class="inputClasses"
                            :name="inputName(listItem)"
                            :value="listItem.value"
                            v-model="valueContainer[controlName]"
@@ -18,7 +18,7 @@
                 </template>
                 <template v-else>
                     <input :type="inputType"
-                           :class="control.additionalFieldClass"
+                           :class="inputClasses"
                            :name="inputName(listItem)"
                            :value="listItem.value"
                            v-model="valueContainer[controlName]"
@@ -45,7 +45,7 @@
                         <template v-if="isLabelBefore">
                             {{listItem.text}}
                             <input :type="inputType"
-                                :class="control.additionalFieldClass"
+                                :class="inputClasses"
                                 :name="inputName(listItem)"
                                 :value="listItem.value"
                                 v-model="valueContainer[controlName]"
@@ -53,7 +53,7 @@
                         </template>
                         <template v-else>
                             <input :type="inputType"
-                                :class="control.additionalFieldClass"
+                                :class="inputClasses"
                                 :name="inputName(listItem)"
                                 :value="listItem.value"
                                 v-model="valueContainer[controlName]"
@@ -118,7 +118,7 @@
              * @returns {string}
              */
             inputType() {
-                return this.control.type.toLowerCase();
+                return this.control.inputType.toLowerCase();
             },
 
             /**
@@ -126,7 +126,7 @@
              * @returns {boolean}
              */
             isRadio() {
-                return this.control.type === 'radio'
+                return this.inputType === 'radio'
             },
 
             /**
@@ -134,7 +134,7 @@
              * @returns {boolean}
              */
             isCheckbox() {
-                return this.control.type === 'checkbox'
+                return this.inputType === 'checkbox'
             },
 
             /**
@@ -184,6 +184,19 @@
                     'text-left': this.control.position === RADIO_CHECKBOX_POSITION.left.val,
                 }
             },
+
+            /**
+             * Get the input classes for the control
+             * @returns {Array}
+             */
+            inputClasses() {
+                if (this.isRadio || this.isCheckbox) {
+                    return this.control.additionalFieldClass
+                }
+
+                // For other type of control, we add form-control class
+                return this.controlFieldClass
+            }
         },
 
         methods: {

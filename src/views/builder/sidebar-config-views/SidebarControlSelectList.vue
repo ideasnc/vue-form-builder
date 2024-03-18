@@ -10,6 +10,7 @@
                :class="styles.LIST_GROUP.SINGLE_ITEM"
                v-for="(controlInfo, controlKey) in controlTypes"
                v-show="!controlInfo.isHidden"
+               :key="controlKey"
                @click="selectedControl(controlKey)">
 
                 <p class="type-headline" v-text="controlInfo.name"></p>
@@ -31,7 +32,19 @@
         name: "SidebarControlSelectList",
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
         computed: {
-            controlTypes: () => CONTROLS
+            controlTypes: () => {
+                console.log(CONTROLS);
+                const controls = {};
+                const sortedKeys = Object.keys(CONTROLS).sort((a, b) => {
+                    let orderA = CONTROLS[a].order ? CONTROLS[a].order : 0
+                    let orderB = CONTROLS[b].order ? CONTROLS[b].order : 0
+                    return orderA - orderB
+                })
+                sortedKeys.forEach(key => {
+                    controls[key] = CONTROLS[key]
+                })
+                return controls
+            }
         },
 
         data:() => ({

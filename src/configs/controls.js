@@ -167,6 +167,7 @@ const CONTROLS = {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
             labelPosition: RADIO_CHECKBOX_LABEL_POSITION.after.val, // before/after
+            inputType: "checkbox", // checkbox/radio/custom
 
             /**
              * @var {ListItem[]} items
@@ -189,6 +190,7 @@ const CONTROLS = {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
             labelPosition: RADIO_CHECKBOX_LABEL_POSITION.after.val, // before/after
+            inputType: "radio", // checkbox/radio/custom
 
             /**
              * @var {ListItem[]} items
@@ -208,6 +210,8 @@ const CONTROLS = {
             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
             labelPosition: RADIO_CHECKBOX_LABEL_POSITION.before.val, // before/after
+            inputType: "text", // checkbox/radio/custom
+            additionalFieldClass: "w-auto d-inline-block", // To make it inline
 
             /**
              * @var {ListItem[]} items
@@ -328,6 +332,7 @@ const CONTROL_DEFAULT_DATA = {
     'uniqueId': '', // :id
     'type': '', // control type...
     'name': '', // :name
+    'order': 0, // :order
 
     'label': '',
     'subLabel': '',
